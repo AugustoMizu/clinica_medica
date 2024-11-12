@@ -84,4 +84,21 @@ class paciente
             return false;
         }
     }
+
+    function excluirAgenda($id)
+    {
+        $c = new config();
+        $pdo = $c->getPDO();
+
+        $sql = $pdo->prepare("DELETE FROM consulta WHERE ID_consulta = :ID");
+        $sql->bindValue(':ID', $id);
+
+        if ($sql->execute()) {
+            // escluido com sucesso 
+            return true;
+        } else{
+            // deu ruim
+            return false;
+        }
+    }
 }

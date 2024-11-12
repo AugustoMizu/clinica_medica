@@ -21,3 +21,8 @@ especialidade enum(
  data_consulta datetime not null,
  foreign key (ID_FK_paciente) references paciente(ID_paciente)
 );
+
+CREATE OR REPLACE VIEW agenda as select p.ID_paciente, p.nome, p.telefone, p.genero, c.ID_consulta, c.especialidade , c.data_consulta 
+from paciente p inner join consulta c on p.ID_paciente = c.ID_FK_paciente;
+
+select * from consulta;

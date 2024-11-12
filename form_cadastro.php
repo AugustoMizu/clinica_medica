@@ -60,8 +60,6 @@ $dataMinima = date('Y-m-d', strtotime('-18 years'));
         <br>
       </div>
       <input type="submit" class="button w-75" value="SALVAR">
-      <p><a href="form_agenda.php?link=true" class="row d-flex justify-content-center link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-        Paciente já cadastrado, clique aqui</a></p>
         <a href="form_lista.php" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
         Ver lista de agendamentos</a>
     </form>

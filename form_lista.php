@@ -4,6 +4,9 @@ $p = new paciente(null, null, null, null, null, null, null);
 $lista = [];
 
 $lista = $p->retornaAgenda();
+session_start();
+$excluido = isset($_SESSION['excluido']) ? $_SESSION['excluido'] : null;
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -45,7 +48,7 @@ $lista = $p->retornaAgenda();
                             <td><?= $pl["genero"] ?></td>
                             <td><?= $pl["especialidade"] ?></td>
                             <td><?= $pl["data_consulta"] ?></td>
-                            <td><a href="#" onclick='confirmarExclusao(<?= $pl["ID_produto"] ?>)'>Excluir</a></td>
+                            <td><a href="#" onclick='confirmarExclusao(<?= $pl["ID_consulta"] ?>)'>Excluir</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -64,6 +67,19 @@ $lista = $p->retornaAgenda();
                 window.location.href = `action_excluir.php?id=${id}&confirmar=true`;
             }
         }
+    </script>
+     <script>
+        // Alerta de paciente cadastrado com sucesso
+        document.addEventListener('DOMContentLoaded', function() {
+            var excluido = <?php echo json_encode($excluido); ?> ?? null;
+
+            if (excluido == 1) {
+                alert('AGENDAMENTO EXCLUIDO COM SUCESSO!! (*^_^*)');
+            }else if(excluido == 2){
+                alert('ERRO: TENTE NOVAMENTE (｡>﹏<｡)');
+            }
+            <?php $_SESSION['excluido'] = null ?>
+        });
     </script>
 </body>
 
