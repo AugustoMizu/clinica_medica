@@ -62,6 +62,8 @@ $dataMinima = date('Y-m-d', strtotime('-18 years'));
       <input type="submit" class="button w-75" value="SALVAR">
       <p><a href="form_agenda.php?link=true" class="row d-flex justify-content-center link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
         Paciente já cadastrado, clique aqui</a></p>
+        <a href="form_lista.php" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+        Ver lista de agendamentos</a>
     </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

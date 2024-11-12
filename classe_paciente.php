@@ -53,7 +53,8 @@ class paciente
             return false;
         }
     }
-    function agendar($ID_paciente ,$especialidade, $data_consulta) { //agendar a consulta
+    function agendar($ID_paciente, $especialidade, $data_consulta)
+    { //agendar a consulta
         $c = new config();
         $pdo = $c->getPDO();
 
@@ -62,11 +63,25 @@ class paciente
         $sql->bindValue(':especialidade', $especialidade);
         $sql->bindValue(':data_consulta', $data_consulta);
 
-        if($sql->execute()){
+        if ($sql->execute()) {
             return true;
-        }else{
+        } else {
             return false;
         }
+    }
 
+    function retornaAgenda()
+    {
+        // retorna todos os agendamentos cadastrados
+        $c = new config();
+        $pdo = $c->getPDO();
+
+        $sql = $pdo->query("SELECT * FROM agenda"); // select na view agenda
+        $sql->execute();
+        if ($sql->rowCount() > 0) { // retorna a lista cadastrada
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        } else { // algo deu ruim
+            return false;
+        }
     }
 }
